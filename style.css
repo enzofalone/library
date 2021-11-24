@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+    margin: 0;
+    
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-container {
+    display:flex;
+    flex-wrap: wrap-reverse; /*we want to show the last books added*/
+    justify-content: center;
+    margin: 0 30px 0 30px;
+}
+
+.card {
+    width: 250px;
+    height: 250px;
+    padding: 0 50px;
+    max-height: 300px;
+    color:white;
+    background-color: gray;
+    margin-top: 1%;
+    flex: 0 1 22%;
+    box-sizing: border-box;
+}
+
+.card h2 {
+    color: white;
+}
+
+h1 {
+    color: #fff0ff;
+}
+
+footer {
+    margin-top: auto;
+    color: whitesmoke;
+}
