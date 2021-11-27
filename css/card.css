@@ -30,3 +30,14 @@
 .read { 
     background-color: #849C87;
 }
+
+.card-header {
+    display:flex;
+    flex-direction: row;
+}
+
+.card-header button {
+    z-index: 1;
+    border-style: none;
+    border-radius: 5px;
+}
