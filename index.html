@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="card.css">
     <title>Library</title>
 </head>
+
 <body>
     <div class="main">
-        <h1>Library</h1>
+        <div class="top-section">
+            <h1>Library</h1>
+            <button type="button" id="button-add" onclick="popupForm()">Add Book</button>
+        </div>
+
+        <div class="form">
+            <label for="title">Title</label>
+            <input type="text" placeholder="" name="title" required>
+
+            <label for="author">Author</label>
+            <input type="text" placeholder="" name="autor" required>
+
+            <label for="pages">Number of Pages</label>
+            <input type="text" placeholder="" name="pages" required>
+
+            <label for="switch" class="toggle">Read</label>
+            <input type="checkbox" id="switch" class="checkbox" />
+
+            <button type="button" id="button-submit" onclick="submitNewBook">Submit</button>
+        </div>
+        <div class="user-controller"></div>
         <div class="card-container">
         </div>
         <footer>Created by Enzo Falone © 2021</footer>
     </div>
+    <script src="book.js"></script>
+    <script src="cardHandler.js"></script>
+    <script src="form.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>

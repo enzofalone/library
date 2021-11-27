@@ -1,0 +1,32 @@
+.card {
+    width: 280px;
+    height: fit-content;
+    /*margin-top: 1rem;
+    margin-left: 1rem;*/
+
+    padding: 10px 60px;
+    color:white;
+    background-color: gray;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 500ms;
+}
+
+.card h2 {
+    color: white;
+}
+
+.card img {
+    pointer-events: none;
+    user-select: none;
+}
+
+.read { 
+    background-color: #849C87;
+}
