@@ -100,7 +100,8 @@ function hideCardBtns(e) {
 
 //Delete card on cross button click
 function deleteCard(e) {
-    console.log("delete!");
+    const p = e.currentTarget.parentNode;
+    p.parentNode.remove();
 }
 
 //Handle read status on read button click
