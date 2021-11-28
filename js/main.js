@@ -2,9 +2,9 @@ let library = [];
 
 function updateLibrary() {
     library.forEach(element => {
-        if(!element.display) {
+        if (!element.display) {
             createCard(element);
-        } 
+        }
     });
 }
 
@@ -14,7 +14,7 @@ function addBookToLibrary(book) {
     createCard(book);
 }
 
-theHobbit = new Book("Harry Potter", "J.R.R. Tolkien",295,false); // test
+const harryPotter = new Book("Harry Potter", "J. K. Rowling", 223, false); // test
+const theHobbit = new Book("The Hobbit","J. R. R. Tolkien", 310, true); // test
+addBookToLibrary(harryPotter);
 addBookToLibrary(theHobbit);
-addBookToLibrary(theHobbit);
-

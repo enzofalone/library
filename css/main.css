@@ -31,15 +31,52 @@ body {
     gap: 1rem;
 }
 
-h1 {
-    color: #fff0ff;
-}
-
 footer {
     position: absolute;
     bottom: 0;
+    padding-top: 10px;
     width: 100%;
     height: 2.5rem;
     color: whitesmoke;
     text-align: center;
+    background-color: black;
+}
+
+footer a {
+    text-decoration: none;
+    color: #e2e2e2;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+.button{
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+
+    background-color: gray;
+
+    border-style: solid;
+    border-radius: 5px;
+    border-color:gray;
+    cursor: pointer;    
+
+    transition: background-color 150ms;
+}
+
+.button:hover{
+    background-color: rgb(163, 163, 163);
+}
+
+.top-section h1 {
+    margin-top: 1rem;
+    font-size: 36px;
+    color: #cacaca;
+}
+
+.top-section button {
+    margin-top: 1rem;
 }

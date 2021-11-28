@@ -3,8 +3,7 @@ function createCard(e) {
     let cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
 
-
-    //HEADER SECTION OF CARD
+    //header section
     let cardHeaderDiv = document.createElement("div");
     cardHeaderDiv.classList.add("card-header")
 
@@ -12,7 +11,8 @@ function createCard(e) {
     let titleText = document.createTextNode(e.title);
     title.appendChild(titleText);
     cardHeaderDiv.appendChild(title);
-    //Content of card
+    
+    //content
     let image = document.createElement("img")
     let imageSRC = `https://source.unsplash.com/300x300/?${e.title}`;
     image.src = imageSRC;
@@ -27,48 +27,83 @@ function createCard(e) {
     let pagesText = document.createTextNode(`${e.pages} pages`);
     pages.appendChild(pagesText);
 
-    //Add elements for the cardDiv below
+    //Add bottom section for buttons
+    let cardBottomDiv = document.createElement("div");
+    cardBottomDiv.classList.add("card-bottom");
+
+    //Add elements for the cardDiv
     cardDiv.appendChild(cardHeaderDiv);
     cardDiv.appendChild(image);
     cardDiv.appendChild(author);
     cardDiv.appendChild(pages);
+    cardDiv.appendChild(cardBottomDiv)
 
     cardContainer.appendChild(cardDiv);
 
-    cardDiv.addEventListener("click", setRead);
+    //cardDiv.addEventListener("click", setRead);
     cardDiv.addEventListener("mousemove", createCardBtns);
     cardDiv.addEventListener("mouseout", hideCardBtns);
+
+    //if the book has been read, setRead will be called
+    if(e.read){
+        setRead(cardDiv);
+    }    
 }
 
-//Handle read status
-function setRead(e) {
-    e.currentTarget.classList.toggle("read");
-}
+
 
 //Create delete button when mouse goes in the range of the card
 function createCardBtns(e) {
-    cardHeaderDiv = e.currentTarget.querySelector(".card-header")
-    
-    if(cardHeaderDiv.querySelector("button") === null){ //create only if buttons do not exist
-        let button = document.createElement("button");
-        button.classList.add("button-delete");
-        let t = document.createTextNode("X");
-        button.appendChild(t);
+    let cardBottomDiv = e.currentTarget.querySelector(".card-bottom");
+    let buttons = e.currentTarget.querySelectorAll("button");
 
-        button.addEventListener("click", deleteCard);
+    if(cardBottomDiv.querySelector("button") === null){ //create only if buttons do not exist
+        //read button
+        let readButton = document.createElement("button");
+        readButton.classList.add("button-card")
+        let textRead = document.createElement("i");
+        textRead.classList.add("far");
+        textRead.classList.add("fa-eye");
+        readButton.appendChild(textRead);
 
-        cardHeaderDiv.appendChild(button);
+        //delete button
+        let deleteButton = document.createElement("button");
+        deleteButton.classList.add("button-card");
+        let textDelete = document.createElement("i");
+        textDelete.classList.add("fas");        //icon class
+        textDelete.classList.add("fa-times");   //icon class
+        deleteButton.appendChild(textDelete);
 
-        let readButton = document.create
+        //event listeners for buttons
+        readButton.addEventListener("click", (e) => {
+            e.currentTarget.parentNode.parentNode.classList.toggle("read");
+        });
+        deleteButton.addEventListener("click", deleteCard);
+        
+        //add buttons
+        cardBottomDiv.appendChild(readButton);
+        cardBottomDiv.appendChild(deleteButton);
+    } else {
+        buttons.forEach(e => {
+            e.style.display = "block";
+        });
     }
 }
 
 //Hide delete button when the mouse goes out of the range of the card
 function hideCardBtns(e) {
-
+    let buttons = e.currentTarget.querySelectorAll("button");
+    buttons.forEach(button => {
+        button.style.display = "none";
+    })
 }
 
 //Delete card on cross button click
 function deleteCard(e) {
     console.log("delete!");
+}
+
+//Handle read status on read button click
+function setRead(e,) {
+    e.classList.toggle("read");
 }
